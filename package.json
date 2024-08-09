@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.1",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

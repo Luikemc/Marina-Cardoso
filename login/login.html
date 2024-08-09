@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="page">
+        <form class="formLogin" id="login-form" onsubmit="verificaLogin(event);">
+          <h1>Login</h1>
+          <p>Digite os seus dados de acesso no campo abaixo.</p>
+          <label for="user">User or E-mail</label>
+          <input type="text" placeholder="Digite seu e-mail" autofocus="true" id="user" required/>
+          <label for="senha">Senha</label> <!-- Alterado de 'password' para 'senha' -->
+          <input type="password" placeholder="Digite sua senha" id="senha" required/>
+          <a href="/">Esqueci minha senha</a>
+          <input type="submit" value="Acessar" class="btn" id="btn" onsubmit="return login.verificaLogin(event)"/>
+        </form>
+      </div>
+      <script type="module" src="login.js"></script>
+</body>
+</html>

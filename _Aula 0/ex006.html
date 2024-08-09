@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            border-radius: 20px 20px 0 0;
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .modificador{
+            border-radius: 50%;
+            height: 20px;
+            width: 60px;
+            position: relative;
+            bottom: 30px;
+        }
+        h3{
+            margin: auto;
+        }
+        .area{
+            width: 150px;
+            background: rgb(56, 54, 54);
+            text-align: center;
+            border-radius: 10px 10px 10px 10px;
+            margin-left: 12%;
+        }
+        #butao{
+            width: 100px;
+            height: 30px;
+            border-radius: 10px 10px 10px 10px;
+            margin: 10px;
+            background-color: rgb(25, 25, 85);
+        }
+        .cabecalho{
+            background-color: rgb(73, 62, 62);
+            width: 50%;
+            height: 100px;
+            margin-left: 20%;
+            border-radius: 10px 10px 10px 10px;
+        }
+        #nick{
+            width: 300px;
+            height: 40px;
+            border-radius: 20px 20px 20px 20px;
+            margin-top: 20px;
+        }
+        .infoE{
+            background-color: rgb(56, 54, 54);
+            width: 500px;
+            height: 90px;
+            margin-left: 380px;
+            margin-top: -80px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .info{
+            width: 90px;
+            height: 20px;
+            border-radius: 20px 20px 20px 20px;
+            margin-top: 3px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho">
+        <div>
+            <strong>NOME</strong> <input type="text" name="nick" id="nick">
+                <div class="infoE">
+                <strong>classe</strong>           <input type="text" id="classe" class="info">
+                <strong>nivel</strong>            <input type="number" id="nivel" class="info">
+                <strong>antecedentes</strong>     <input type="text" id="antecedentes" class="info">
+                    <strong>-raca</strong>           <input type="text" id="raca" class="info">
+                    <strong> alinhamento</strong>    <input type="text" id="alinhamento" class="info">
+                </div>
+        </div>
+    </header>
+    <section class="area">
+        <div>
+            <h3>FORCA</h3>
+            <input type="number" placeholder="Forca" id="forca"><br>
+                                <input type="number"  class="modificador"><br>
+            <h3>DESTREZA</h3>
+            <input type="number" placeholder="Destreza" id="destreza"><br>
+                                <input type="number"  class="modificador"><br>
+            <h3>CONSTITUICAO</h3>
+            <input type="number" placeholder="Constituicao" id="constituicao"><br>
+                                <input type="number"  class="modificador"><br>
+            <h3>INTELIGENCIA</h3>
+            <input type="number" placeholder="Inteligencia" id="inteligencia"><br>
+                                <input type="number"  class="modificador"><br>
+            <h3>SABEDORIA</h3>
+            <input type="number" placeholder="Sabedoria" id="sabedoria"><br>
+                                <input type="number" class="modificador"><br>
+            <h3>CARISMA</h3>
+            <input type="number" placeholder="Carisma" id="carisma"><br>
+                                <input type="number"class="modificador"><br>
+
+            <button id="butao"><strong>SALVAR</strong></button>
+        </div>
+    </section>
+
+    <script>
+
+        var forcaInput = window.document.getElementById('forca');
+        var destrezaInput = window.document.getElementById('destreza');
+        var constituicaoInput = window.document.getElementById('constituicao');
+        var inteligenciaInput = window.document.getElementById('inteligencia');
+        var sabedoriaInput = window.document.getElementById('sabedoria');
+        var carismaInput = window.document.getElementById('carisma');
+        var butao = window.document.getElementById('butao');
+        var maximo = 25;
+        var elementosModificadores = window.document.getElementsByClassName('modificador')
+      
+        
+        function forca() {
+        var valorForca = parseInt(forcaInput.value)
+
+            if (isNaN(valorForca)) {
+                alert('Faltou o valor em força')
+            } 
+            else if (valorForca > maximo) {
+                window.alert('Seu valor de força está passando de 25')
+            } 
+
+            var modForca = calcularModificador(valorForca);
+            elementosModificadores[0].value = modForca;
+
+    }
+        function destreza(){
+            var valorDestreza = parseInt(destrezaInput.value)
+            
+            if(isNaN(valorDestreza)){
+                alert('faltou o valor em destreza')
+            }
+            else if(valorDestreza > maximo) {
+                window.alert('Seu valor de destreza esta passando de 25')
+            }
+
+            var modDestreza = calcularModificador(valorDestreza);
+            elementosModificadores[1].value = modDestreza;
+        }
+
+        function constituicao(){
+            var valorConstituicao =  parseInt(constituicaoInput.value)
+            
+            if(isNaN(valorConstituicao)){
+                alert('faltou o valor em constituicao')
+            }
+            else if (valorConstituicao > maximo) {
+                window.alert('Seu valor de constituicao esta passando de 25')
+            }
+
+            var modConstituicao = calcularModificador(valorConstituicao);
+            elementosModificadores[2].value = modConstituicao;
+        }
+
+        function inteligencia() {
+            var valorInteligencia = parseInt(inteligenciaInput.value);
+
+            if (isNaN(valorInteligencia)) {
+                alert('Faltou o valor em inteligência');
+                return;
+            } else if (valorInteligencia > maximo) {
+                alert('Seu valor de inteligência está passando de 25');
+                return;
+            }
+
+            var modInteligencia = calcularModificador(valorInteligencia);
+            elementosModificadores[3].value = modInteligencia;
+        }
+
+        function sabedoria(){
+            var valorSabedoria = parseInt(sabedoriaInput.value)
+            
+            if (isNaN(valorSabedoria)) {
+                alert('faltou o valor em sabedoria')
+            }
+            else if (valorSabedoria > maximo) {
+                window.alert('Seu valor de sabedoria esta passando de 25')
+            }
+
+            var modSabedoria = calcularModificador(valorSabedoria);
+            elementosModificadores[4].value = modSabedoria;
+        }
+
+        function carisma(){
+            
+            var valorCarisma = parseInt(carismaInput.value)
+
+            if (isNaN(valorCarisma)) {
+                alert('faltou o valor em carisma')
+            }
+            else if (valorCarisma > maximo) {
+                window.alert('Seu valor de carisma esta passando de 25')
+            }
+            
+            var modCarisma = calcularModificador(valorCarisma);
+            elementosModificadores[5].value = modCarisma;
+        }
+
+        function calcularModificador(valorModificador){
+            
+            if (valorModificador <= 1) {
+                return -5;
+            } else if (valorModificador >= 2 && valorModificador <= 3) {
+                return -4;
+            } else if (valorModificador >= 4 && valorModificador <= 5) {
+                return -3;
+            } else if (valorModificador >= 6 && valorModificador <= 7) {
+                return -2;
+            } else if (valorModificador >= 8 && valorModificador <= 9) {
+                return -1;
+            } else if (valorModificador >= 10 && valorModificador <= 11) {
+                return 0;
+            } else if (valorModificador >= 12 && valorModificador <= 13) {
+                return 1;
+            } else if (valorModificador >= 14 && valorModificador <= 15) {
+                return 2;
+            } else if (valorModificador >= 16 && valorModificador <= 17) {
+                return 3;
+            } else if (valorModificador >= 18 && valorModificador <= 19) {
+                return 4;
+            } else if (valorModificador >= 20 && valorModificador <= 21) {
+                return 5;
+            } else if (valorModificador >= 22 && valorModificador <= 23) {
+                return 6;
+            } else if (valorModificador >= 24 && valorModificador <= 25) {
+                return 7;
+            } else {
+                return 0;
+            }
+        }
+
+        /*
+            <strong>NOME</strong> <input type="text" name="nick" id="nick">
+            <div class="infoE">
+               <strong>classe</strong>           <input type="text" id="classe" class="info">
+               <strong>nivel</strong>            <input type="number" id="nivel" class="info">
+               <strong>antecedentes</strong>     <input type="text" id="antecedentes" class="info">
+                <strong>-raca</strong>           <input type="text" id="raca" class="info">
+                <strong> alinhamento</strong>    <input type="text" id="alinhamento" class="info">
+            </div>
+        */
+
+        var classeInput = window.document.getElementById('classe')
+        var nivelInput = window.document.getElementById('nivel')
+        var antecedentesInput= window.document.getElementById('antecedentes')
+        var racaInput = window.document.getElementById('raca')
+        var alinhamentoInput = window.document.getElementById('alinhamento')
+
+        function classes(){
+            var classes= (classeInput.value)
+
+            if (classes === '') {
+                alert(`Voce esqueceu da sua classe`)
+            } else {
+                alert(`sua classe e ${classes.toUpperCase()}`)
+            }
+        }
+        function nivel(){
+            var nivels = (nivelInput.value)
+
+            if(nivels === ''){
+                alert(`Voce esqueceu seu nivel`)
+            }else if (nivels > 20) {
+                alert(`NIVEL MAXIMO E 20`)
+            }else{ 
+                alert(`seu nivel e ${nivels}`)
+            }
+               
+        }
+        function antecedentes(){
+            var antece = (antecedentesInput.value)
+
+            if (antece === '') {
+                alert(`Voce esqueceu seu antecedente`)
+            } else {
+                alert(`antecedente e ${antece}`)
+            }
+            
+        }
+        function raca(){
+            var racas = (racaInput.value)
+
+            if (racas === '') {
+                alert(`voce esqueceu sua raca`)
+            } else {
+                alert(`sua raca e ${racas}`)
+            }
+            
+        }
+        function alinhamento(){
+            var alinha = (alinhamentoInput.value)
+
+            if (alinha === '') {
+                alert(`voce esqueceu seu alinhamento`)
+            } else {
+                alert(`seu alinhamento e ${alinha}`)
+            }
+            
+        }
+
+        function botaod(){
+            butao.style.background = 'green';
+        }
+        function botaof(){
+            butao.style.background = 'rgb(25, 25, 85)';
+        }
+
+
+    butao.addEventListener('click', forca);
+    butao.addEventListener('click', destreza);
+    butao.addEventListener('click', constituicao);
+    butao.addEventListener('click', inteligencia);
+    butao.addEventListener('click', sabedoria);
+    butao.addEventListener('click', carisma);
+    butao.addEventListener('mouseout', botaod)
+    butao.addEventListener('mouseleave', botaof)
+    butao.addEventListener('click', classes)
+    butao.addEventListener('click', nivel)
+    butao.addEventListener('click', antecedentes)
+    butao.addEventListener('click', raca)
+    butao.addEventListener('click', alinhamento)
+    
+    </script>
+</body>
+</html>

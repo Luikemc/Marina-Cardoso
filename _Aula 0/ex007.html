@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERIFICAR NASCIONALIDADE</title>
+
+</head>
+<body>
+    <h1>QUAL SUA NASCIONALIDADE?</h1>
+    
+    <h3>NASCIONALIDADE</h3>
+    <input type="text" name="nac" id="nac">
+    <button id="butao">Verifiar</button>
+
+    <script>
+        function verificar(){
+            var verificando = window.document.getElementById('nac')
+
+            if (verificando.value == 'Brasil') {
+                document.write('Voce e brasileiro')
+            }else{
+                document.write('Voce e estrangeiro')
+            }
+        }
+
+        butao.addEventListener('click', verificar)
+    </script>
+</body>
+</html>
