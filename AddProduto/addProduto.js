@@ -10,25 +10,23 @@ class Produto {
         this.confirmEdit = null;
     }
 
-    salvar() {
+    async salvar() {
         let produto = this.lerDados();
     
         if (this.validaCampo(produto)) {
             if (this.confirmEdit == null) {
-                this.adicionar(produto);
+                await this.adicionar(produto);
             } else {
-                this.atualizar(this.confirmEdit, produto);
+                await this.atualizar(this.confirmEdit, produto);
                 this.confirmEdit = null;
                 document.getElementById('btn1').innerHTML = 'Salvar';
-                // Reatribui a função salvar ao botão
                 document.getElementById('btn1').onclick = () => this.salvar();
             }
+            this.listarTabela(); // Mova para dentro do bloco condicional
         }
-    
-        this.listarTabela();
+       
         this.cancelar();
     }
-    
 
     cancelar() {
         document.getElementById('produto').value = '';
@@ -41,8 +39,7 @@ class Produto {
     async adicionar(produto) {
         let { data, error } = await supabase
             .from('products')
-            .insert([produto])
-            .single();
+            .insert([produto]);
     
         if (error) {
             console.error('Erro ao adicionar produto:', error.message);
@@ -51,14 +48,21 @@ class Produto {
         }
     
         console.log('Produto adicionado com sucesso:', data);
-        this.arrayProdutos.push(data);
-    }
+        
+         // Atualize a tabela
+         this.listarTabela();
+         this.cancelar()
+        // Adicione o novo produto à lista local
+        this.arrayProdutos.push(data[0]);
     
+       
+    }
 
     async listarTabela() {
         let tbody = document.getElementById('tbody');
+        console.log(`estou listando`)
         tbody.innerHTML = ''; // Limpa a tabela antes de adicionar novos dados
-        
+    
         let { data: produtos, error } = await supabase
             .from('products')
             .select('*');
@@ -77,39 +81,40 @@ class Produto {
             let td_id = tr.insertCell();
             let td_produto = tr.insertCell();
             let td_preco = tr.insertCell();
-            let td_descricaoV = tr.insertCell();
+            let td_descricao = tr.insertCell();
             let td_img = tr.insertCell();
-            let td_estoqueV = tr.insertCell();
+            let td_estoque = tr.insertCell();
             let td_acoes = tr.insertCell();
             
             td_id.innerText = this.arrayProdutos[i].product_id;
             td_produto.innerText = this.arrayProdutos[i].name;
             td_preco.innerText = this.arrayProdutos[i].price;
-            td_descricaoV.innerText = this.arrayProdutos[i].description;
+            td_descricao.innerText = this.arrayProdutos[i].description;
             td_img.innerText = this.arrayProdutos[i].imagem;
-            td_estoqueV.innerText = this.arrayProdutos[i].stock;
+            td_estoque.innerText = this.arrayProdutos[i].stock;
             
             td_id.classList.add('center');
             td_produto.classList.add('center');
             td_preco.classList.add('center');
-            td_descricaoV.classList.add('center');
+            td_descricao.classList.add('center');
             td_img.classList.add('center');
-            td_estoqueV.classList.add('center');
+            td_estoque.classList.add('center');
             td_acoes.classList.add('center');
             
             let imgEdit = document.createElement('img');
             imgEdit.src = './imagens/editar-texto.png';
-            imgEdit.onclick = () => this.prepararEdicao(this.arrayProdutos[i]); // Corrigido para usar `this`
+            imgEdit.onclick = () => this.prepararEdicao(this.arrayProdutos[i]);
             
             let imgDelete = document.createElement('img');
             imgDelete.src = './imagens/excluir.png';
-            imgDelete.onclick = () => this.deletar(this.arrayProdutos[i].product_id); // Corrigido para usar `this`
+            imgDelete.onclick = () => this.deletar(this.arrayProdutos[i].product_id);
             
             td_acoes.appendChild(imgEdit);
             td_acoes.appendChild(imgDelete);
+
+            console.log(`listados`)
         }
     }
-       
 
     lerDados() {
         let produto = {};
@@ -117,9 +122,9 @@ class Produto {
     
         produto.name = document.getElementById('produto').value;
         produto.price = document.getElementById('valor').value;
-        produto.stock = document.getElementById('estoque').value;
         produto.description = document.getElementById('descr').value;
         produto.imagem = document.getElementById('imagem').value;
+        produto.stock = document.getElementById('estoque').value;
     
         if (produto.imagem.length > maxLength) {
             produto.imagem = produto.imagem.slice(0, maxLength) + '...';
@@ -128,7 +133,6 @@ class Produto {
         console.log('lerDados:', produto);
         return produto;
     }
-    
 
     validaCampo(produto) {
         let msg = '';
@@ -181,7 +185,6 @@ class Produto {
             this.listarTabela();
         }
     }
-    
 
     prepararEdicao(dados) {
         this.confirmEdit = dados.product_id;
@@ -192,10 +195,8 @@ class Produto {
         document.getElementById('imagem').value = dados.imagem;
         document.getElementById('estoque').value = dados.stock;
     
-        document.getElementById('btn1').innerHTML = 'Atualizar';
-    
-        // Reatribui a função salvar ao botão Atualizar
-        document.getElementById('btn1').onclick = () => this.salvar();
+        console.log('preparando edicao')
+        document.getElementById('btn1').innerHTML = 'Atualizar'
     }
 
     async atualizar(id, produto) {
@@ -211,6 +212,12 @@ class Produto {
         }
         
         console.log('Produto atualizado com sucesso:', data);
+
+        // Atualize a tabela
+        this.listarTabela();
+        this.cancelar()
+       // Adicione o novo produto à lista local
+       this.arrayProdutos.push(data[0]);
         
         // Atualiza o produto no array local
         for (let i = 0; i < this.arrayProdutos.length; i++) {
@@ -218,19 +225,15 @@ class Produto {
                 this.arrayProdutos[i] = data[0];
             }
         }
-        
-        // Recarrega a tabela para refletir as mudanças
-        this.listarTabela();
     }
-    
-    
 }
 
 var produto = new Produto(); // Inicializa a instância
 
-document.getElementById('btn1').addEventListener('click', () => {
-    produto.salvar(); // Usa o método salvar da instância
-});
 document.addEventListener('DOMContentLoaded', () => {
     produto.listarTabela();
+});
+
+document.getElementById('btn1').addEventListener('click', () => {
+    produto.salvar(); // Usa o método salvar da instância
 });
