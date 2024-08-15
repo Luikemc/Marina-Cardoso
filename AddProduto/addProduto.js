@@ -24,7 +24,6 @@ class Produto {
             }
             this.listarTabela(); // Mova para dentro do bloco condicional
         }
-       
         this.cancelar();
     }
 
@@ -34,6 +33,11 @@ class Produto {
         document.getElementById('descr').value = '';
         document.getElementById('imagem').value = '';
         document.getElementById('estoque').value = '';
+    
+        console.log(`cancelando`);
+
+        this.confirmEdit = null;
+        document.getElementById('btn1').innerHTML = 'Salvar';
     }
 
     async adicionar(produto) {
@@ -54,8 +58,6 @@ class Produto {
          this.cancelar()
         // Adicione o novo produto à lista local
         this.arrayProdutos.push(data[0]);
-    
-       
     }
 
     async listarTabela() {
@@ -101,18 +103,30 @@ class Produto {
             td_estoque.classList.add('center');
             td_acoes.classList.add('center');
             
-            let imgEdit = document.createElement('img');
-            imgEdit.src = './imagens/editar-texto.png';
-            imgEdit.onclick = () => this.prepararEdicao(this.arrayProdutos[i]);
-            
-            let imgDelete = document.createElement('img');
-            imgDelete.src = './imagens/excluir.png';
-            imgDelete.onclick = () => this.deletar(this.arrayProdutos[i].product_id);
-            
-            td_acoes.appendChild(imgEdit);
-            td_acoes.appendChild(imgDelete);
+            // Ícone de edição
+            // Ícone de edição
+            let editWrapper = document.createElement('span');
+            let editIcon = document.createElement('i');
+            editIcon.setAttribute('data-feather', 'edit');
+            editIcon.classList.add('m-2', 'cursor-pointer');
+            editIcon.style.cursor = 'pointer';
+            editWrapper.onclick = () => this.prepararEdicao(this.arrayProdutos[i]);
+            editWrapper.appendChild(editIcon);
+
+            // Ícone de exclusão
+            let deleteWrapper = document.createElement('span');
+            let deleteIcon = document.createElement('i');
+            deleteIcon.setAttribute('data-feather', 'trash');
+            deleteIcon.classList.add('m-2', 'cursor-pointer');
+            deleteIcon.style.cursor = 'pointer';
+            deleteWrapper.onclick = () => this.deletar(this.arrayProdutos[i].product_id);
+            deleteWrapper.appendChild(deleteIcon);
+
+            td_acoes.appendChild(editWrapper);
+            td_acoes.appendChild(deleteWrapper);
 
             console.log(`listados`)
+            feather.replace();
         }
     }
 
@@ -216,8 +230,8 @@ class Produto {
         // Atualize a tabela
         this.listarTabela();
         this.cancelar()
-       // Adicione o novo produto à lista local
-       this.arrayProdutos.push(data[0]);
+        // Adicione o novo produto à lista local
+        this.arrayProdutos.push(data[0]);
         
         // Atualiza o produto no array local
         for (let i = 0; i < this.arrayProdutos.length; i++) {
@@ -233,7 +247,9 @@ var produto = new Produto(); // Inicializa a instância
 document.addEventListener('DOMContentLoaded', () => {
     produto.listarTabela();
 });
-
 document.getElementById('btn1').addEventListener('click', () => {
     produto.salvar(); // Usa o método salvar da instância
 });
+document.getElementById('btn2').addEventListener('click', ()=>{
+    produto.cancelar()
+})

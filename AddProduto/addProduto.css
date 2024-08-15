@@ -90,3 +90,4 @@ table td img{
     overflow: hidden;
     text-overflow: ellipsis; /* Adiciona "..." quando o texto é cortado */
 }
+deleteIcon.style.cursor = 'pointer';
