@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="loja.css">
+    <script src="loja.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -12,9 +14,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light mx-auto fs-5 fixed-top">
-        <div class="container-fluid p-2">
-          <a class="navbar-brand mx-auto bg-logo" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-cor mx-auto fs-5 fixed-top">
+        <div class="container-fluid p-0">
+          <a class="navbar-brand mx-auto bg-logo" href="../Home/home.html">
+            <img src="../img/brand.png" alt="Brand" class="brand">
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,7 +28,7 @@
                 <a class="nav-link active" aria-current="page" href="/Home/home.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Loja/Loja.html">Loja</a>
+                <a class="nav-link" href="/Loja/loja.html">Loja</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Dresses</a>
@@ -33,10 +37,10 @@
                 <a class="nav-link" href="#">Casual</a>
               </li>
             </ul>
-            <i data-feather="user" class="m-2 cursor-pointer"></i>
+            <i data-feather="user" class="m-2 cursor-pointer" onclick="loja.infoUser()"></i>
             <i data-feather="shopping-cart" class="m-2 cursor-pointer"></i>
             <i data-feather="headphones" class="m-2 cursor-pointer"></i>
-            <i data-feather="plus" id="plus" class="cursor-pointer"></i>
+            <i data-feather="plus" id="plus" class="cursor-pointer" onclick="loja.addProduct()"></i>
           </div>
         </div>
       </nav>     
