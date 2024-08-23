@@ -3,6 +3,7 @@ import { createClient } from 'https://cdn.skypack.dev/@supabase/supabase-js';
 const supabaseUrl = 'https://toaencryhzhrkjoxftpt.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRvYWVuY3J5aHpocmtqb3hmdHB0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjE5MTc0NzMsImV4cCI6MjAzNzQ5MzQ3M30.MGNDyPW3y_3b8SeyiQjLo_lPMUa3hcIU4abyOJZIBB4';
 const supabase = createClient(supabaseUrl, supabaseKey);
+console.log('loja.js carregado');
 
 class Loja {
     constructor() {
@@ -15,12 +16,6 @@ class Loja {
         await this.loadProducts();
     }
 
-    
-    addProduct() {
-        // Lógica para adicionar um produto
-        alert('Você será redirecionado');
-        window.location.href = '../AddProduto/addProduto.html';
-    }
 
     async loadProducts() {
         try {
@@ -58,12 +53,10 @@ class Loja {
         });
     }
 
-    infoUser() {
-        const loggedInUser = localStorage.getItem('loggedInUser');
-        alert(`Usuário logado aqui: ${loggedInUser}`);
-    }
 }
 
 // Instância da classe Loja
-const loja = new Loja();
+var loja = new Loja();
+    
+  
 
