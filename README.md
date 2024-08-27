@@ -5,7 +5,7 @@ A FAZER ->
 
 Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap
 
-Fazer os layotes dos produtos/pagina dos produtos --> loja sebd feuta
+Fazer pagina dos produtos --> loja sebd feuta ajustar para receber imagem ao inves de link
 
 
 
