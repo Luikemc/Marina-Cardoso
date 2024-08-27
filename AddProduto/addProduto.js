@@ -140,10 +140,6 @@ class Produto {
         produto.imagem = document.getElementById('imagem').value;
         produto.stock = document.getElementById('estoque').value;
     
-        if (produto.imagem.length > maxLength) {
-            produto.imagem = produto.imagem.slice(0, maxLength) + '...';
-        }
-    
         console.log('lerDados:', produto);
         return produto;
     }

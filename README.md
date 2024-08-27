@@ -3,7 +3,7 @@
 
 A FAZER -> 
 
-Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. -> falta fazer na parte do addproduto --> Adicionar o nav no ADDPRODUTO , ele esta bugando por conta do link do bootstrap
+Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap
 
 Fazer os layotes dos produtos/pagina dos produtos --> loja sebd feuta
 
@@ -11,6 +11,7 @@ Fazer os layotes dos produtos/pagina dos produtos --> loja sebd feuta
 
 OQUE EU FIZ NO SITE__>
 
+Colocado o nave no loja
 
 Ja foi feito a verificacao de qual usuario esta logado e se ele tem permissao de adm ou nao. 
 

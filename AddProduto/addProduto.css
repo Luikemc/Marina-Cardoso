@@ -82,10 +82,3 @@ table td img{
     text-align: center;
 }
 
-.short-link {
-    display: inline-block;
-    max-width: 200px;  /* Define a largura máxima antes de cortar */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adiciona "..." quando o texto é cortado */
-}

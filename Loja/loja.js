@@ -38,13 +38,13 @@ class Loja {
 
         products.forEach(product => {
             const productCard = `
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <img src="${product.imagem_url}" class="card-img-top" alt="${product.nome}">
+                        <img src="${product.imagem}" class="card-img-top" alt="${product.name}">
                         <div class="card-body">
-                            <h5 class="card-title">${product.nome}</h5>
-                            <p class="card-text">${product.descricao}</p>
-                            <p class="card-text text-success"><strong>${product.preco}</strong></p>
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">${product.description}</p>
+                            <p class="card-text text-success"><strong>R$ ${product.price}</strong></p>
                         </div>
                     </div>
                 </div>
