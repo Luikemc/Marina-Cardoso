@@ -28,7 +28,7 @@ async function loadProductDetails() {
 function displayProductDetails(product) {
     const productDetails = document.getElementById('product-details');
     productDetails.innerHTML = `
-    <div class="container mt-5">
+    <div class="container mt-5 p-5">
     <div class="row align-items-center">
         <div class="col-md-4 d-flex justify-content-center">
             <img src="${product.imagem}" alt="${product.name}" class="img-fluid w-500">
@@ -37,11 +37,15 @@ function displayProductDetails(product) {
             <div>
                 <h5 class="card-title">${product.name}</h5>
                 <p class="text-success"><strong>R$ ${product.price}</strong></p>
+                    <button class="w-100 bg-green">COMPRAR</button>
             </div>
         </div>
     </div>
     <p class="card-text">${product.description}</p>
 </div>
+
+
+
     `;
 }
 
