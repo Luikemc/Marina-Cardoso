@@ -3,9 +3,9 @@
 
 A FAZER -> 
 
-Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap
+Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap fazer nav bar em addproduto
 
-Fazer pagina dos produtos --> loja sebd feuta ajustar para receber imagem ao inves de link
+Fazer pagina dos produtos --> ajustar pagina dos produtos = style.
 
 
 

@@ -30,14 +30,34 @@ function displayProductDetails(product) {
     productDetails.innerHTML = `
     <div class="container mt-5 p-5">
     <div class="row align-items-center">
-        <div class="col-md-4 d-flex justify-content-center">
+        <div class="col-md-3 d-flex justify-content-center w-50">
             <img src="${product.imagem}" alt="${product.name}" class="img-fluid w-500">
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 m-5 ">
             <div>
                 <h5 class="card-title">${product.name}</h5>
                 <p class="text-success"><strong>R$ ${product.price}</strong></p>
-                    <button class="w-100 bg-green">COMPRAR</button>
+               <div class="mb-3">
+                    <p><strong>CORES</strong></p>
+                    <div class="d-flex">
+                        <div class="color-circle" style="background-color: red;"></div>
+                        <div class="color-circle" style="background-color: blue;"></div>
+                        <div class="color-circle" style="background-color: green;"></div>
+                        <div class="color-circle" style="background-color: yellow;"></div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <p><strong>TAMANHOS</strong></p>
+                    <div class="d-flex">
+                        <div class="size-box">P</div>
+                        <div class="size-box">M</div>
+                        <div class="size-box">G</div>
+                        <div class="size-box">GG</div>
+                    </div>
+                </div>
+
+                <button class="w-100 bg-green">COMPRAR</button>
             </div>
         </div>
     </div>
