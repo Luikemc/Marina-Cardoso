@@ -70,3 +70,20 @@
   transform: scale(1.1);
 }
 
+.mt-n3 {
+  margin-top: -0.2rem; /* Remove 1rem de margem do topo (movendo o elemento para cima) */
+}
+
+.carousel-item {
+  display: flex; /* Para garantir que as imagens fiquem lado a lado */
+  justify-content: center; /* Centraliza o conteúdo */
+  align-items: center;
+}
+
+.carousel-item img {
+  width: 25%; /* Ajusta a largura para exibir 4 imagens no mesmo slide */
+  height: auto;
+  padding: 0 10px; /* Espaço entre as imagens */
+}
+
+
