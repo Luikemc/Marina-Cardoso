@@ -27,39 +27,6 @@ class ProductDetails {
         }
     }
 
-    async productRecommended() {
-        const productRecommended = document.getElementById('product-recommended');
-        
-        const { data: products, error } = await supabase
-            .from('products')
-            .select('imagem, name'); // Recupera as imagens e os nomes dos produtos
-    
-        if (error) {
-            console.error('Erro ao buscar os produtos recomendados:', error);
-            return;
-        }
-    
-        let carouselItems = '';
-        let itemsPerSlide = 4; // Número de imagens por slide
-        products.forEach((product, index) => {
-            if (index % itemsPerSlide === 0) {
-                if (index !== 0) {
-                    carouselItems += '</div>'; // Fechar o slide anterior
-                }
-                // Verifica se é o primeiro item, que precisa da classe "active"
-                const activeClass = index === 0 ? 'active' : '';
-                carouselItems += `<div class="carousel-item ${activeClass}">`;
-            }
-            
-            carouselItems += `
-                <img src="${product.imagem}" class="d-block" alt="${product.name}">
-            `;
-        });
-        
-        carouselItems += '</div>'; // Fechar o último slide
-        productRecommended.innerHTML = carouselItems;
-    }
-    
 
     displayProductDetails(product) {
         const productDetails = document.getElementById('product-details');
@@ -103,23 +70,11 @@ class ProductDetails {
         </div>
     
         <div class="container mt-0 p-5">
-    <strong class="fs-3">PODE GOSTAR TAMBÉM</strong>
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="product-recommended"></div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-
-
+    <strong class="fs-3">PODE GOSTAR TAMBÉM</strong></div>
+        
         `;
     }
+    
 }
 
 const productDetails = new ProductDetails();

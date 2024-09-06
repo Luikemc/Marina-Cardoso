@@ -1,0 +1,75 @@
+/* Cơ bản */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 285px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: all 0.2s ease;
+}
+
+.swiper-slide-active img:hover {
+    transform: scale(1.1);
+}
+
+.swiper-slide h3 {
+    position: absolute;
+    bottom: 0;
+    display: none;
+    font-size: 22px;
+    color: #fff;
+    position: absolute;
+    background: var(--blur-1-color);
+    background: linear-gradient( to top,var(--theme-color),var(--theme-opacity-color) );
+    text-shadow: -1px -1px 2px var(--theme-color),2px 2px 3px var(--theme-color);
+    font-weight: 400;
+    transition: all .3s ease;
+    z-index: 3;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    padding-right: 15px;
+    line-height: 1;
+    margin-bottom: 0;
+    border-radius: 0 0 12px 12px;
+    padding: 45px 10px 6px;
+}
+
+.swiper-slide-active h3 {
+    display: initial;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--theme-color);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: var(--blur-1-color);
+    transition: all 0.2s ease;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    color: var(--theme-color);
+}
