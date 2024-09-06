@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+    <div class="page">
+        <form class="formRegister" id="register-form" onsubmit="verificaRegister(event);"> <!--Mesma coisa aqui... Nao deveria
+                                                                                            ser somente 'register'?-->
+          <h1>Register</h1>
+          <p>Digite os dados para se cadastrar.</p>
+          
+          <label for="user">User</label>
+          <input type="text" placeholder="User" autofocus="true" id="user" required/>
+
+          <label for="user">E-mail</label>
+          <input type="text" placeholder="E-mail" autofocus="true" id="user" required/> <!--ID ESTA ERRADO.ID e importate para diferenciar os input na hora de pegar o valor.-->
+                                                                                        <!--IMPORTANTE -> ID E DE USO UNICO. Nao se pode ter duas coisa com o mesmo ID-->
+          <label for="senha">Senha</label> 
+          <input type="password" placeholder="Senha" id="senha" required/> <!--Para adicionar o icone... tenho usado um site]
+                                                                            fale comigo para pegar o site e saber como usa.-->
+
+          <label for="senha">Confirme sua Senha</label> <!-- Confirme senha e facil de fazer no js. Recomendo ser a segunda coisa a fazer
+                                                        apos descobrir como pegar os valores dos inputs. -->
+
+          <input type="password" placeholder="Confirme sua senha" id="ConfirmeSenha" required/> <!--Tente sempre comecar o ID com letra minuscula. Assim como uma funcao.
+                                                                                                  Caso o ID tenha duas palavra, a segunda palavra comeca com a letra maiscula-->
+
+          <input type="submit" value="Register" class="btn" id="btn" onsubmit="return register.verificaRegister(event)"/> <!--Como assim verificaRegister?
+                                                                                                                            O que essa funcao faz? Nao deveria ser somente
+                                                                                                                            'register'?-->
+
+        </form>
+      </div>
+      <script type="module" src="cadastro.js"></script>
+</body>
+</html>
