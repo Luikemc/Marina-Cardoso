@@ -6,7 +6,7 @@ $(document).ready(function() {
         loop: !0,
         autoplay: { delay: 4e3 },
         speed: 800,
-        centeredSlides: true,
+        centeredSlides: false,
         slidesPerView: "auto",
         coverflowEffect: {
             rotate: 0,

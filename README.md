@@ -2,7 +2,7 @@
 
 
 A FAZER -> 
-fazer corressel em detalhesprodutod
+fazer corressel em detalhesprodutod -> carrossel funcionando, porem falta implementar ele
 Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap fazer nav bar em addproduto
 
 Fazer pagina dos produtos --> ajustar pagina dos produtos = style.
