@@ -2,14 +2,16 @@
 
 
 A FAZER -> 
-fazer corressel em detalhesprodutod
+
 Fazer o navbar ser o mesmo tem todas. No caso fazer ele separados. ->add produto -> ele esta bugando por conta do link do bootstrap fazer nav bar em addproduto
 
 Fazer pagina dos produtos --> ajustar pagina dos produtos = style.
 
-
+Futuramente, ajustar para mostrar itens com mesmo tipo. Mostrar nos recomendados.
 
 OQUE EU FIZ NO SITE__>
+
+Carrossel finalizado. Finalmente ajusstado para funcionar com bd, e msotrar itens selecionados.
 
 Colocado o nave no loja
 

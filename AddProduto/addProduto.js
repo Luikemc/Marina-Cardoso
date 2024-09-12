@@ -33,6 +33,7 @@ class Produto {
         document.getElementById('descr').value = '';
         document.getElementById('imagem').value = '';
         document.getElementById('estoque').value = '';
+        document.getElementById('tipo').value = '';
     
         console.log(`cancelando`);
 
@@ -86,6 +87,7 @@ class Produto {
             let td_descricao = tr.insertCell();
             let td_img = tr.insertCell();
             let td_estoque = tr.insertCell();
+            let td_tipo = tr.insertCell();
             let td_acoes = tr.insertCell();
             
             td_id.innerText = this.arrayProdutos[i].product_id;
@@ -94,6 +96,7 @@ class Produto {
             td_descricao.innerText = this.arrayProdutos[i].description;
             td_img.innerText = this.arrayProdutos[i].imagem;
             td_estoque.innerText = this.arrayProdutos[i].stock;
+            td_tipo.innerText = this.arrayProdutos[i].type;
             
             td_id.classList.add('center');
             td_produto.classList.add('center');
@@ -101,6 +104,7 @@ class Produto {
             td_descricao.classList.add('center');
             td_img.classList.add('center');
             td_estoque.classList.add('center');
+            td_tipo.classList.add('centar');
             td_acoes.classList.add('center');
             
             // Ícone de edição
@@ -139,6 +143,7 @@ class Produto {
         produto.description = document.getElementById('descr').value;
         produto.imagem = document.getElementById('imagem').value;
         produto.stock = document.getElementById('estoque').value;
+        produto.type = document.getElementById('tipo').value
     
         console.log('lerDados:', produto);
         return produto;
@@ -165,6 +170,10 @@ class Produto {
 
         if (produto.stock === '') {
             msg += 'Você deixou o campo Estoque em branco.\n';
+        }
+
+        if (produto.type === '') {
+            msg += 'Você deixou o campo Tipo em branco.\n';
         }
 
         if (msg !== '') {
@@ -204,6 +213,7 @@ class Produto {
         document.getElementById('descr').value = dados.description;
         document.getElementById('imagem').value = dados.imagem;
         document.getElementById('estoque').value = dados.stock;
+        document.getElementById('tipo').value = dados.type;
     
         console.log('preparando edicao')
         document.getElementById('btn1').innerHTML = 'Atualizar'
