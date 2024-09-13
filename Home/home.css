@@ -1,5 +1,5 @@
 .carousel-item img {
-    height: 800px; /* Define a altura fixa desejada */
+    height: 855px; /* Define a altura fixa desejada */
     width: 100%; /* Garante que a imagem ocupe toda a largura do container */
     object-fit: cover; /* Mantém a proporção da imagem e cobre todo o espaço disponível */
   }
@@ -14,6 +14,10 @@
 }
 
 .bg-cor{
+  background: transparent;
+}
+
+.bg-cor:hover{
   background: #e5e5e5;
 }
 
@@ -36,4 +40,8 @@ footer {
 .brand{
   width: 200px;
   height: 50px;
+}
+
+i{
+  color: white;
 }
