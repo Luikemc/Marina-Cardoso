@@ -1,5 +1,5 @@
 .carousel-item img {
-    height: 855px; /* Define a altura fixa desejada */
+    height: 100%; /* Define a altura fixa desejada */
     width: 100%; /* Garante que a imagem ocupe toda a largura do container */
     object-fit: cover; /* Mantém a proporção da imagem e cobre todo o espaço disponível */
   }
@@ -50,3 +50,5 @@ footer {
 i{
   color: white;
 }
+
+

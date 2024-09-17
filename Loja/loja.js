@@ -39,7 +39,7 @@ class Loja {
         products.forEach(product => {
             const productCard = `
                 <div class="col-md-3">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm baixo">
                         <a href="../detalhesProduto/productDetails.html?product_id=${product.product_id}" style="text-decoration: none;  color: black;">
                             <img src="${product.imagem}" class="card-img-top" alt="${product.name}">
                             <div class="card-body">

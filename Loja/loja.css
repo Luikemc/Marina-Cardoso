@@ -8,5 +8,18 @@
   }
 
 .bg-cor{
+    background: transparent;
+    transition: background-color 0.6s ease;
+  }
+  
+.bg-cor:hover{
     background: #e5e5e5;
   }
+
+.solid-navbar {
+    background-color: #e5e5e5; /* A cor desejada para o navbar ao rolar */
+  }
+
+.baixo{
+  top: 50px;
+}
